@@ -1,0 +1,24 @@
+BewerbungsPortal
+
+Core:
+-Authentifizierung
+--Registrieren
+--Einloggen
+--Ausloggen
+
+-Dokumenten CRUD (Bewerbungschreiben, Lebenslauf)
+-Upload (Zeugnisse, Bild)
+-Download (Einzelne Dateien)
+-Drücken(optional, denn es ist nur HTML)
+
+Maxi-Programm:
+-Senden per Email
+-Admin
+-Upload (Unterlagen, wie Lebenslauf und sw.)
+-Download (Bewerbung + Lebenslauf + Zeugnisse als ein PDF)
+
+Optional:
+-Drag&Drop Reihenfolge von Unterlagen(kommt zu 90% nicht, ist nur eine Spielerei mit UI)
+-Select für die Dokumente, die benötigt werden(kommt 90% nicht, ist nur eine Spielerei mit UI)
+
+
