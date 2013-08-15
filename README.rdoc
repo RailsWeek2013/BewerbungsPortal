@@ -21,4 +21,11 @@ Optional:
 -Drag&Drop Reihenfolge von Unterlagen(kommt zu 90% nicht, ist nur eine Spielerei mit UI)
 -Select für die Dokumente, die benötigt werden(kommt 90% nicht, ist nur eine Spielerei mit UI)
 
+Gems:
+...
+
+Authors:
+Arnold Andiek	arnold.andiek@mni.thm.de
+Ilja Michajlow	ilja.michajlow@mni.thm.de
+
 
