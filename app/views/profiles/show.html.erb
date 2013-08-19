@@ -45,7 +45,8 @@
 </div>
 
 <div id = "image_div">
-  <%= image_tag("default.jpg") %>
+  
+  <%= image_tag @profile.avatar.url(:medium) %>
 </div>
 
 
