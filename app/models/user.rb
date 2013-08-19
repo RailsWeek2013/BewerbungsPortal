@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
-
+  has_one :address, through: :profile
 end

@@ -17,17 +17,19 @@
 
   <tbody>
     <% @profiles.each do |profile| %>
+      <%  if profile != nil %>
       <tr>
         <td><%= profile.firstName %></td>
         <td><%= profile.name %></td>
         <td><%= profile.birthday %></td>
-        <td><%= profile.address %></td>
+        <td><%= profile.address.street %></td>
         <td><%= profile.marialStatus %></td>
         <td><%= profile.telefon %></td>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -35,3 +37,4 @@
 <br>
 
 <%= link_to 'New Profile', new_profile_path %>
+

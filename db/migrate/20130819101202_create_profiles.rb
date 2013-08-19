@@ -4,10 +4,9 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :firstName
       t.string :name
       t.date :birthday
-      t.references :address, index: true
+      t.references :user, index: true
       t.string :marialStatus
       t.string :telefon
-
       t.timestamps
     end
   end

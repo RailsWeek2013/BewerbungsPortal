@@ -4,10 +4,10 @@ one:
   street: MyString
   zip: MyString
   city: MyString
-  user_id: 
+  profile_id: 
 
 two:
   street: MyString
   zip: MyString
   city: MyString
-  user_id: 
+  profile_id: 
