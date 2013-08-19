@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BP</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	
+	<div id = "container">
+		
+		<div id = "header">
+			<h1>Meine Bewerbungsunterlagen</h1>
+		</div>
+
+		<div id = "content">
+			<div id = "menu_div">
+				<div id='cssmenu'>
+					<ul>
+						<li class='active'><%= link_to "Home", root_path %></li>
+						<li class='has-sub'><a href='#'><span>Profile</span></a>
+							<ul>
+								<li><a href='#'><span>Product 1</span></a></li>
+								<li><a href='#'><span>Product 2</span></a></li>
+								<li><a href='#'><span>P3</span></a></li>
+								<li class='last'><a href='#'><span>p4</span></a></li>
+							</ul>
+						</li>
+						<li><%= link_to "About", about_path %></li>
+						<li class='last'><%= link_to "Contact", contact_path %></li>
+					</ul>
+				</div>
+			</div>
+			<div id = "content_text">
+				<p class="notice"><%= notice %></p>
+				<p class="alert"><%= alert %></p>
+
+				<%= yield %>
+			</div>
+		</div>
+
+		<div id="footer">
+			&copy 2013 |
+			<% if user_signed_in? %>
+			<%= link_to "logout", destroy_user_session_path, method: :delete%>
+			<% else %>
+			<%= link_to "login", new_user_session_path %>
+			<% end %>
+
+		</div>
+	</div>
+</body>
+</html>

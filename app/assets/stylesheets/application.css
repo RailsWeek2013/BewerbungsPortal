@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+ // Place all the styles related to the bookmarks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$blau: #006999;
+$gruen: #008414;
+$rot: #990ADC;
+*{
+margin: 0;
+}
+body {
+background-color: #ddd;
+}
+#container {
+width: 500px;
+margin: 0 auto;
+}
+#header {
+background-color: $blau;
+padding: 10px;
+color: #fff;
+text-align: center;
+}
+#content {
+border: 2px solid $blau;
+padding: 10px;
+background-color: #fff;
+min-height: 200px;
+h2 {
+font-size: 1.1em;
+margin-bottom: 0.5em;
+}
+}
+#notice {
+border: 1px solid $gruen;
+background-color: yellow;
+}
+#alert {
+border: 1px solid $rot;
+color: $rot;
+background-color: #FFA894;
+}
+label {
+display: block;
+}
+input {
+margin: 0.5em 0;
+}
+input[type="submit"] {
+margin-top: 2em;
+}
+
+.field_with_errors {
+background-color: red;
+}
+
+
