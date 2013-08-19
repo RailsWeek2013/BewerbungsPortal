@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819093738) do
+ActiveRecord::Schema.define(version: 20130819101202) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20130819093738) do
   end
 
   add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
+
+  create_table "profiles", force: true do |t|
+    t.string   "firstName"
+    t.string   "name"
+    t.date     "birthday"
+    t.integer  "address_id"
+    t.string   "marialStatus"
+    t.string   "telefon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["address_id"], name: "index_profiles_on_address_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

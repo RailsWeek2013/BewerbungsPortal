@@ -1,4 +1,6 @@
 BP::Application.routes.draw do
+  resources :profiles
+
   resources :addresses
 
   root :to => "home#index"
