@@ -1,31 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div id = "info_div">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @profile.firstName %>
-</p>
+  <br/>
 
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
+  <p>
+    <h1> Allgemeine Information </h1>
+    <hr>
+  </p>
+  <br/>
+  <p>
+   <h2> <%= @profile.firstName %> <%= @profile.name %></h2>
+  </p>
 
-<p>
-  <strong>Birthday:</strong>
-  <%= @profile.birthday %>
-</p>
+  <p>
+    <h2><%= @profile.birthday %></h2>
+  </p>
+  <p>
+    <h2><%= @profile.marialStatus %></h2>
+  </p>
+
+  <p>
+    <strong>Telefon:</strong>
+    <h2><%= @profile.telefon %></h2>
+  </p>
+
+  <br/>
+
+  <p>
+    <h1>Addresse:</h1>
+    <hr>
+  </p>
+
+  <br/>
+
+  <p>
+    <h2><%= @profile.address.street %></h2>
+  </p>
+
+  <p>
+    <h2><%= @profile.address.city %>, <%= @profile.address.zip %></h2>
+  </p>
+  <%= link_to 'Edit', edit_profile_path(@profile) %> |
+  <%= link_to 'Delete', profile_path, method: :delete %>
+</div>
+
+<div id = "image_div">
+  <%= image_tag("default.jpg") %>
+</div>
 
 
-
-<p>
-  <strong>Marialstatus:</strong>
-  <%= @profile.marialStatus %>
-</p>
-
-<p>
-  <strong>Telefon:</strong>
-  <%= @profile.telefon %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Delete', profile_path, method: :delete %>
