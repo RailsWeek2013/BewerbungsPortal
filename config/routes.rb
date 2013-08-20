@@ -1,5 +1,17 @@
 BP::Application.routes.draw do
-  
+
+  resources :knowledges
+
+  resources :courses
+
+  resources :works
+
+  resources :educations
+
+  resources :schools
+
+  resources :places
+
   resources :profiles, except: :index
 
   resources :addresses
