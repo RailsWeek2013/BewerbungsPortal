@@ -1,0 +1,2 @@
+class Course < Place
+end
