@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130820090434) do
+ActiveRecord::Schema.define(version: 20130820123533) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -39,7 +39,10 @@ ActiveRecord::Schema.define(version: 20130820090434) do
     t.string   "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "profile_id"
   end
+
+  add_index "knowledges", ["profile_id"], name: "index_knowledges_on_profile_id"
 
   create_table "places", force: true do |t|
     t.date     "time_start"
@@ -48,7 +51,10 @@ ActiveRecord::Schema.define(version: 20130820090434) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "profile_id"
   end
+
+  add_index "places", ["profile_id"], name: "index_places_on_profile_id"
 
   create_table "profiles", force: true do |t|
     t.string   "firstName"

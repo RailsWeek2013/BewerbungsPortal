@@ -4,7 +4,12 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works = Work.all
+    if(current_user.profile.nil?)
+      redirect_to new_profile_path,
+                  notice: "You need first to fill your profile ;)."
+    else
+      @works = current_user.profile.places.where(:type => Work)
+    end
   end
 
   # GET /works/1
@@ -25,10 +30,11 @@ class WorksController < ApplicationController
   # POST /works.json
   def create
     @work = Work.new(work_params)
+    @work.profile = current_user.profile
 
     respond_to do |format|
       if @work.save
-        format.html { redirect_to @work, notice: 'Work was successfully created.' }
+        format.html { redirect_to works_path, notice: 'Work was successfully created.' }
         format.json { render action: 'show', status: :created, location: @work }
       else
         format.html { render action: 'new' }
@@ -42,7 +48,7 @@ class WorksController < ApplicationController
   def update
     respond_to do |format|
       if @work.update(work_params)
-        format.html { redirect_to @work, notice: 'Work was successfully updated.' }
+        format.html { redirect_to works_path, notice: 'Work was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +75,6 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params[:work]
+      params[:work].permit(:time_start, :time_end, :desc, :type)
     end
 end

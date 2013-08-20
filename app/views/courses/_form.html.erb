@@ -11,6 +11,21 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :time_start %><br>
+    <%= f.date_select :time_start, :start_year => 1900, :end_year => 2100 %>
+  </div>
+  <div class="field">
+    <%= f.label :time_end %><br>
+    <%= f.date_select :time_end , :start_year => 1900, :end_year => 2100%>
+  </div>
+  <div class="field">
+    <%= f.label :Description %><br>
+   <%= f.text_area :desc , :cols => 70, :rows => 20  %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :type, :value => "Course" %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

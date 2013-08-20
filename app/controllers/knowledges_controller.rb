@@ -4,7 +4,12 @@ class KnowledgesController < ApplicationController
   # GET /knowledges
   # GET /knowledges.json
   def index
-    @knowledges = Knowledge.all
+    if(current_user.profile.nil?)
+      redirect_to new_profile_path,
+                  notice: "You need first to fill your profile ;)."
+    else
+          @knowledges = current_user.profile.knowledges.all
+    end
   end
 
   # GET /knowledges/1
@@ -25,10 +30,11 @@ class KnowledgesController < ApplicationController
   # POST /knowledges.json
   def create
     @knowledge = Knowledge.new(knowledge_params)
+    @knowledge.profile = current_user.profile
 
     respond_to do |format|
       if @knowledge.save
-        format.html { redirect_to @knowledge, notice: 'Knowledge was successfully created.' }
+        format.html { redirect_to knowledges_path, notice: 'Knowledge was successfully created.' }
         format.json { render action: 'show', status: :created, location: @knowledge }
       else
         format.html { render action: 'new' }
@@ -42,7 +48,7 @@ class KnowledgesController < ApplicationController
   def update
     respond_to do |format|
       if @knowledge.update(knowledge_params)
-        format.html { redirect_to @knowledge, notice: 'Knowledge was successfully updated.' }
+        format.html { redirect_to knowledges_path, notice: 'Knowledge was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
   
 
-    puts params.to_yaml
+    #puts params.to_yaml
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }

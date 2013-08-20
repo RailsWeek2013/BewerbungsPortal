@@ -4,7 +4,12 @@ class EducationsController < ApplicationController
   # GET /educations
   # GET /educations.json
   def index
-    @educations = Education.all
+    if(current_user.profile.nil?)
+      redirect_to new_profile_path,
+                  notice: "You need first to fill your profile ;)."
+      else
+    @educations = current_user.profile.places.where(:type => Education)
+    end
   end
 
   # GET /educations/1
@@ -25,10 +30,11 @@ class EducationsController < ApplicationController
   # POST /educations.json
   def create
     @education = Education.new(education_params)
+    @education.profile = current_user.profile
 
     respond_to do |format|
       if @education.save
-        format.html { redirect_to @education, notice: 'Education was successfully created.' }
+        format.html { redirect_to educations_path, notice: 'Education was successfully created.' }
         format.json { render action: 'show', status: :created, location: @education }
       else
         format.html { render action: 'new' }
@@ -42,7 +48,7 @@ class EducationsController < ApplicationController
   def update
     respond_to do |format|
       if @education.update(education_params)
-        format.html { redirect_to @education, notice: 'Education was successfully updated.' }
+        format.html { redirect_to educations_path, notice: 'Education was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +75,6 @@ class EducationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def education_params
-      params[:education]
+      params[:education].permit(:time_start, :time_end, :desc)
     end
 end

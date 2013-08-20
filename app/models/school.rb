@@ -1,2 +1,3 @@
 class School < Place
+	
 end

@@ -4,7 +4,12 @@ class SchoolsController < ApplicationController
   # GET /schools
   # GET /schools.json
   def index
-    @schools = School.all
+    if(current_user.profile.nil?)
+      redirect_to new_profile_path,
+                  notice: "You need first to fill your profile ;)."
+    else
+      @schools = current_user.profile.places.where(:type => School)
+    end
   end
 
   # GET /schools/1
@@ -25,10 +30,11 @@ class SchoolsController < ApplicationController
   # POST /schools.json
   def create
     @school = School.new(school_params)
+    @school.profile = current_user.profile
 
     respond_to do |format|
       if @school.save
-        format.html { redirect_to @school, notice: 'School was successfully created.' }
+        format.html { redirect_to schools_path, notice: 'School was successfully created.' }
         format.json { render action: 'show', status: :created, location: @school }
       else
         format.html { render action: 'new' }
@@ -42,7 +48,7 @@ class SchoolsController < ApplicationController
   def update
     respond_to do |format|
       if @school.update(school_params)
-        format.html { redirect_to @school, notice: 'School was successfully updated.' }
+        format.html { redirect_to schools_path, notice: 'School was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +75,6 @@ class SchoolsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_params
-      params[:school]
+      params[:school].permit(:time_start, :time_end, :desc, :type)
     end
 end

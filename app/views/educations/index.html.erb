@@ -3,7 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th></th>
+      <th>From</th>
+      <th>To</th>
+      <th>Description</th>
       <th></th>
       <th></th>
     </tr>
@@ -12,7 +14,9 @@
   <tbody>
     <% @educations.each do |education| %>
       <tr>
-        <td><%= link_to 'Show', education %></td>
+        <td><%= education.time_start %></td>
+        <td><%= education.time_end %></td>
+        <td><%= education.desc %></td>
         <td><%= link_to 'Edit', edit_education_path(education) %></td>
         <td><%= link_to 'Destroy', education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

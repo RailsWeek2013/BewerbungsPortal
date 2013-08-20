@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    @places = current_user.profile.places
   end
 
   # GET /places/1
@@ -59,6 +59,10 @@ class PlacesController < ApplicationController
       format.html { redirect_to places_url }
       format.json { head :no_content }
     end
+  end
+
+  def schools
+    respond_to schools_path
   end
 
   private
