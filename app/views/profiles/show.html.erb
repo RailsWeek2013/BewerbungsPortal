@@ -41,6 +41,7 @@
     <h2><%= @profile.address.city %>, <%= @profile.address.zip %></h2>
   </p>
   <%= link_to 'Edit', edit_profile_path(@profile) %> |
+  <%= link_to 'Print', pdf_path(@profile)  %> |
   <%= link_to 'Delete', profile_path, method: :delete %>
 </div>
 

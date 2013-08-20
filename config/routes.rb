@@ -1,7 +1,10 @@
 BP::Application.routes.draw do
+  
   resources :profiles, except: :index
 
   resources :addresses
+
+  #resources :pdf
 
   root :to => "home#index"
 
@@ -10,7 +13,8 @@ BP::Application.routes.draw do
   
   get "about" => "home#about", as: "about"
   get "contact" => "home#contact", as: "contact"
-
+  #get "pfd" => "pfd#index", as: "pfd"
+  get "pdf/:id" => "pdf#index", as: "pdf"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
