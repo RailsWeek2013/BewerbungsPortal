@@ -1,0 +1,2 @@
+module PdfAlsHelper
+end

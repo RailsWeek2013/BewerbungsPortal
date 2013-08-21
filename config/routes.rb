@@ -1,5 +1,7 @@
 BP::Application.routes.draw do
 
+  get "pdf_als/index"
+  get "pdf_cvs/index"
   resources :knowledges
 
   resources :courses
@@ -27,7 +29,8 @@ BP::Application.routes.draw do
   get "contact" => "home#contact", as: "contact"
   #get "pfd" => "pfd#index", as: "pfd"
   get "pdf/:id" => "pdf#index", as: "pdf"
-
+  get "pdf_cvs/:id" => "pdf_cvs#index", as: "pdf_cvs"
+   get "pdf_als/:id" => "pdf_als#index", as: "pdf_als"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
