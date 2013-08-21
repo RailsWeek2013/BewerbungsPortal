@@ -8,4 +8,8 @@ class HomeController < ApplicationController
 
   def contact
   end
+
+  def download
+  	@incomplete_attributes = current_user.profile.incomplete_attributes
+  end
 end

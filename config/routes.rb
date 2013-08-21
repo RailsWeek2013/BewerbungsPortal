@@ -27,6 +27,7 @@ BP::Application.routes.draw do
   
   get "about" => "home#about", as: "about"
   get "contact" => "home#contact", as: "contact"
+  get "download" => "home#download", as: "download"
   #get "pfd" => "pfd#index", as: "pfd"
   get "pdf/:id" => "pdf#index", as: "pdf"
 

@@ -1,0 +1,65 @@
+<div id = "download_list">
+	<ul>
+
+		<% if current_user.profile.nil? %>
+
+			<% redirect_back root_path %>
+
+		<% else %>
+		
+			
+				<% if !current_user.profile.loa.nil? %>
+					<% unless @incomplete_attributes.any? %>    
+
+					<li>
+						<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "100x100"), pdf_path(current_user.profile)  %>
+						<h3>Letter of Application (Ready to download!)</h3>
+						<h4>This is your letter of application</h4>
+					</li>
+
+					<% else %>
+
+					<li>
+						<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "100x100"), pdf_path(current_user.profile)  %>
+						<h3>Letter of Application (Not ready to download!)</h3>
+						<h4><u>Please fill this fields:</u></h4>
+						<% @incomplete_attributes.each do |i| %>
+							<h4><%= link_to i, edit_profile_path(current_user.profile) %></h4>
+						<% end %>
+					</li>
+					<% end %>
+				<% else %>
+				<li>
+						<%= image_tag( 'PDF_File_normal.jpg', :size => "100x100")%>
+						<h3>Letter of Application (Not ready to download!)</h3>
+						<h4><%= link_to "Please create first a Letter of Application!", new_loa_path %></h4>
+					</li>	
+				<% end %>
+
+			
+		   
+
+			<% unless @incomplete_attributes.any? %>
+			<li>
+				<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "100x100"), 'http://www.google.com'  %>
+				<h3>CV (Ready to download!)</h3>
+				<h4>This is your CV</h4>
+			</li>
+			<% else %>
+
+			<li>
+				<%= image_tag( 'PDF_File_normal.jpg', :size => "100x100")  %>
+				<h3>CV (Not ready to download!)</h3>
+				<h4><u>Please fill this fields:</u></h4>
+
+				<% @incomplete_attributes.each do |i| %>
+				<h4><%= link_to i, edit_profile_path(current_user.profile) %></h4>
+				<% end %>
+
+			</li>
+
+			<% end %>
+			<% end %>
+
+	</ul>
+</div>
