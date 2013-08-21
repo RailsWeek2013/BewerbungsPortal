@@ -9,7 +9,8 @@ class Profile < ActiveRecord::Base
   
   accepts_nested_attributes_for :address
   
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/default.png"
+  has_attached_file :signature, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/default.png"
 
   after_create :send_welcome_email
 

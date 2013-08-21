@@ -46,7 +46,10 @@
     <%= f.label :telefon %><br>
     <%= f.text_field :telefon %>
   </div>
-    <%= f.file_field :avatar %>
+  <div>
+    <%= f.file_field :avatar %> <%= f.file_field :signature %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
