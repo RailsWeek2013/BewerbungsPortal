@@ -16,7 +16,7 @@
       <tr>
         <td><%= work.time_start %></td>
         <td><%= work.time_end %></td>
-        <td><%= work.desc %></td>
+        <td><%= truncate(work.desc, 25) %></td>
         <td><%= link_to 'Edit', edit_work_path(work) %></td>
         <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

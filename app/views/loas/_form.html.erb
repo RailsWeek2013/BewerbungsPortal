@@ -1,0 +1,47 @@
+<%= form_for(@loa) do |f| %>
+  <% if @loa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loa.errors.count, "error") %> prohibited this loa from being saved:</h2>
+
+      <ul>
+      <% @loa.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <table border="1" bordercolor="#FFFFFF" style="background-color:#FFFFCC" width="100%" cellpadding="3" cellspacing="3">
+  <tr>
+    <td><strong><%= f.label :to %></strong></td>
+    <td><%= f.text_field :to %></td>
+  </tr>
+  <tr>
+    <td><strong><%= f.label :street %></strong></td>
+    <td> <%= f.text_field :street %></td>
+  </tr>
+  <tr>
+    <td><strong><%= f.label :city %></strong></td>
+    <td><%= f.text_field :city %></td>
+  </tr>
+  <tr>
+    <td><strong><%= f.label :zip %></strong></td>
+    <td><%= f.text_field :zip %></td>
+  </tr>
+  <tr>
+    <td><strong><%= f.label :subject %></strong></td>
+    <td><%= f.text_field :subject %></td>
+  </tr>
+  <tr>
+    <td><strong><%= f.label :what %></strong></td>
+    <td> <%= f.text_area :what , :cols => 50, :rows => 15 %></td>
+  </tr>
+</table>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

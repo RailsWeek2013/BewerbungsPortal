@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+
+<table border="1" bordercolor="#FFFFFF" style="background-color:#FFFFCC" width="100%" cellpadding="3" cellspacing="3">
+  <tr>
+    <td><strong>To:</strong></td>
+    <td><%= @loa.to %></td>
+  </tr>
+  <tr>
+    <td><strong>Address</strong></td>
+    <td><%= @loa.street %>, <%= @loa.city %>, <%= @loa.zip %></td>
+  </tr>
+  <tr>
+    <td><strong>Subject:</strong></td>
+    <td><%= @loa.subject %></td>
+  </tr>
+  <tr>
+    <td><strong>What:</strong></td>
+    <td width="400px"><%= @loa.what %></td>
+  </tr>
+</table>
+
+<%= link_to 'Edit', edit_loa_path(@loa) %> |
+<%= link_to 'Delete', loa_path, method: :delete %>
+

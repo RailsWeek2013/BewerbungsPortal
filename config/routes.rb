@@ -1,5 +1,7 @@
 BP::Application.routes.draw do
 
+  resources :loas, except: :index
+
   resources :knowledges
 
   resources :courses
