@@ -10,45 +10,43 @@ class PdfCvsController < ApplicationController
 		pdf.font "Times-Roman"
 
 		pdf.text 	@profile.firstName + " " + @profile.name + " | " + 
-		@profile.address.street + " | " + 
-		@profile.address.city + " " + @profile.address.zip + " | " +
-	    				"Tel.: " + @profile.telefon #, :at => [0,640], :at => [0, 700]
+	    			@profile.address.street + " | " + 
+	    			@profile.address.city + " " + @profile.address.zip + " | " +
+	    			"Tel.: " + @profile.telefon 
+	    	
+	    pdf.draw_text "LEBENSLAUF", :size => 20 , :at => [0,650], :style => :bold
 
-
-	    				pdf.draw_text "LEBENSLAUF", :size => 20 , :at => [0,650], :style => :bold
-
-	    				pdf.move_down 20
-	    pdf.image pic, :at => [450,650], :width => 100 #@profile.avatar.url(:medium)
+	    pdf.move_down 20
+	    pdf.image pic, :at => [450,650], :width => 100 
 	    
 	    pdf.draw_text "Persönliche Daten" , :at =>[0, 610], :style => :bold
-	    #pdf.horizontal_line 25, 100, :at => 75
 
 	    pdf.draw_text "Geburtsdatum: ", :at => [0,590]
 	    pdf.draw_text @profile.birthday.strftime('%d.%m.%Y'), :at => [200,590]
 
+	 
+		verschieben = 520
+		abstand = 15
 
-	    verschieben = 520
-	    abstand = 15
-
-	    pdf.draw_text "Schulbildung", :at => [0, verschieben], :style => :bold
-	    @schools = current_user.profile.places.where(:type => School)
-	    verschieben -= abstand
-
-	    @schools.each do |school|
+		pdf.draw_text "Schulbildung", :at => [0, verschieben], :style => :bold
+		@schools = current_user.profile.places.where(:type => School)
+		verschieben -= abstand
+		
+		@schools.each do |school|
 	    	pdf.draw_text school.time_start.strftime('%d.%m.%Y') + " - " + school.time_end.strftime('%d.%m.%Y') , :at => [0,verschieben]
 	    	pdf.draw_text school.desc, :at => [200,verschieben]
 	    	verschieben -= abstand
 	    end 
 	    verschieben -= abstand
 
-	    pdf.draw_text "Ausbildung", :at => [0, verschieben], :style => :bold
-	    verschieben -= abstand	
-	    @educations = current_user.profile.places.where(:type => Education)
-	    @educations.each do |education|
-	    	pdf.draw_text education.time_start.strftime('%d.%m.%Y') + " - " + education.time_end.strftime('%d.%m.%Y') , :at => [0,verschieben]
+		pdf.draw_text "Ausbildung", :at => [0, verschieben], :style => :bold
+		verschieben -= abstand	
+		@educations = current_user.profile.places.where(:type => Education)
+		@educations.each do |education|
+			pdf.draw_text education.time_start.strftime('%d.%m.%Y') + " - " + education.time_end.strftime('%d.%m.%Y') , :at => [0,verschieben]
 	    	pdf.draw_text education.desc, :at => [200,verschieben]
 	    	verschieben -= abstand	
-	    end
+		end
 	    verschieben -= abstand
 
 	    pdf.draw_text "Praktische Erfahrung", :at => [0, verschieben], :style => :bold
@@ -63,39 +61,39 @@ class PdfCvsController < ApplicationController
 
 	    pdf.draw_text "Kurse", :at => [0, verschieben], :style => :bold
 	    verschieben -= abstand
-	    @courses = current_user.profile.places.where(:type => Course)
-	    @courses.each do |course|
-	    	pdf.draw_text course.time_start.strftime('%d.%m.%Y') + " - " + course.time_end.strftime('%d.%m.%Y') , :at => [0,verschieben]
+		@courses = current_user.profile.places.where(:type => Course)
+		@courses.each do |course|
+			pdf.draw_text course.time_start.strftime('%d.%m.%Y') + " - " + course.time_end.strftime('%d.%m.%Y') , :at => [0,verschieben]
 	    	pdf.draw_text course.desc, :at => [200,verschieben]
 	    	verschieben -= abstand	
-	    end
+		end
 	    verschieben -= abstand
 
 	    pdf.draw_text "Besondere Kenntnisse", :at => [0, verschieben], :style => :bold
 	    verschieben -= abstand
-	    @knowledges = current_user.profile.knowledges.all
-	    @knowledges.each do |knowledge|
-	    	pdf.draw_text knowledge.name, :at => [0,verschieben] 
-	    	pdf.draw_text knowledge.desc, :at => [200,verschieben]
-	    	verschieben -= abstand	
-	    end  
+	 	@knowledges = current_user.profile.knowledges.all
+	 	@knowledges.each do |knowledge|
+	 		pdf.draw_text knowledge.name, :at => [0,verschieben] 
+        	pdf.draw_text knowledge.desc, :at => [200,verschieben]
+        	verschieben -= abstand	
+        end  
 	    verschieben -= abstand	
 
 
-	    pdf.draw_text @profile.address.city + ", " + Time.now.strftime('%d.%m.%Y')	, :at => [0,80]
+		pdf.draw_text @profile.address.city + ", " + Time.now.strftime('%d.%m.%Y')	, :at => [0,80]
 
 	    pdf.draw_text @profile.firstName + " " + @profile.name , :at => [0,50]
 
-	    pdf.image "/tmp/unterschrift.png",  :at => [0,10],  :width => 50
+		pdf.image sig,  :at => [0,10],  :width => 50
 
 
-
-	    send_data pdf.render, :filename => 'Lebenslauf.pdf'
+	    
+	    send_data pdf.render, :filename => 'Bewerbungsanschreiben.pdf'
 
 
 	    #Speichert die PDF in /tmp/prawn.pdf
 	    #name = "/tmp/Bewerbungsanschreiben" + @profile.name
-   	    #pdf.render_file(name) 
+   	    #pdf.render_file(name)
    	end
 
    	private
@@ -118,6 +116,13 @@ class PdfCvsController < ApplicationController
     def profile_params
       params.require(:profile).permit(:firstName, :name, :birthday, :address_id, :marialStatus, :telefon, :avatar,address_attributes: [:profile_id,:street,:city,:zip,:id])
     end
+
+    def sig
+		image = Rails.root.to_s+"/public"+@profile.signature.url(:original)
+	    image = image.strip
+	    img = image.split('?')
+	    return img[0]
+	end
 
 	def pic
 		image = Rails.root.to_s+"/public"+@profile.avatar.url(:original)
