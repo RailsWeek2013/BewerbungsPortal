@@ -1,0 +1,38 @@
+<h1>Listing loas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>To</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>Zip</th>
+      <th>Subject</th>
+      <th>What</th>
+      <th>Profile</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loas.each do |loa| %>
+      <tr>
+        <td><%= loa.to %></td>
+        <td><%= loa.street %></td>
+        <td><%= loa.city %></td>
+        <td><%= loa.zip %></td>
+        <td><%= loa.subject %></td>
+        <td><%= loa.what %></td>
+        <td><%= link_to 'Show', loa %></td>
+        <td><%= link_to 'Edit', edit_loa_path(loa) %></td>
+        <td><%= link_to 'Destroy', loa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loa', new_loa_path %>

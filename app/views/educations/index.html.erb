@@ -16,7 +16,7 @@
       <tr>
         <td><%= education.time_start %></td>
         <td><%= education.time_end %></td>
-        <td><%= education.desc %></td>
+        <td><%= truncate(education.desc, 25) %></td>
         <td><%= link_to 'Edit', edit_education_path(education) %></td>
         <td><%= link_to 'Destroy', education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

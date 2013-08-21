@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130820123533) do
+ActiveRecord::Schema.define(version: 20130821085614) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -43,6 +43,20 @@ ActiveRecord::Schema.define(version: 20130820123533) do
   end
 
   add_index "knowledges", ["profile_id"], name: "index_knowledges_on_profile_id"
+
+  create_table "loas", force: true do |t|
+    t.string   "to"
+    t.string   "street"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "subject"
+    t.text     "what"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "loas", ["profile_id"], name: "index_loas_on_profile_id"
 
   create_table "places", force: true do |t|
     t.date     "time_start"
