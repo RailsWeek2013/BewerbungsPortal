@@ -12,11 +12,12 @@ class Notification < ActionMailer::Base
 
   end
 
-  def send_cv(user)
-  	@user = user
+  def send_cv(profile, file)
+  	@user = profile.user
+  	@file_path = file
+  	
+  	attachments["Document.pdf"] = File.read(@file_path)
 
-  	#attachments
-
-  	mail(:to => user.email, :subject => "Your CV")
+  	mail(:to => @user.email, :subject => "Hey, we have delivered your documents :) !")
   end
 end

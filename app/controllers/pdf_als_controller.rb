@@ -15,6 +15,8 @@ class PdfAlsController < ApplicationController
   		#Speichert die PDF in /tmp/prawn.pdf
 	    name = "/tmp/Lebenslauf" + @profile.name
    	    pdf.render_file(name)
+   	    #Lebenslauf
+   	    Notification.send_cv(@profile, name).deliver
   	end
 
 	private

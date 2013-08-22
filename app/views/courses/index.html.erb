@@ -30,4 +30,7 @@
 
 <br>
 
-<%= link_to 'New Course', new_course_path %>
+
+<% if @courses.count < 4 %>
+  <%= link_to 'New Course', new_course_path %>
+<% end %>

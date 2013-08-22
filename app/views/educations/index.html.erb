@@ -30,4 +30,7 @@
 
 <br>
 
-<%= link_to 'New Education', new_education_path %>
+
+<% if @educations.count < 4 %>
+  <%= link_to 'New Education', new_education_path %>
+<% end %>

@@ -30,4 +30,7 @@
 
 <br>
 
-<%= link_to 'New Work', new_work_path %>
+
+<% if @schools.count < 6 %>
+  <%= link_to 'New Work', new_work_path %>
+<% end %>
