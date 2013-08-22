@@ -36,8 +36,8 @@
 							</ul>
 						</li>
 
-						<% if !current_user.nil? %>
-							<% if !current_user.profile.loa.nil? %>
+						<% unless current_user.nil? %>
+							<% unless current_user.profile.nil? or current_user.profile.loa.nil? %>
 									<li><%= link_to "Letter Of Application", loa_path(current_user.profile.loa) %></li>
 								<% else %>
 									<li><%= link_to "Letter Of Application", new_loa_path %></li>
