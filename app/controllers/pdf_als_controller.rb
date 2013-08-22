@@ -7,15 +7,15 @@ class PdfAlsController < ApplicationController
 
 	def download
 		pdf = index
-  		send_data pdf.render, :filename => 'Lebenslauf.pdf'
+  		send_data pdf.render, :filename => 'Bewerbungsanschreiben.pdf'
   	end
 
   	def save 
   		pdf = index
   		#Speichert die PDF in /tmp/prawn.pdf
-	    name = "/tmp/Lebenslauf" + @profile.name
+	    name = "/tmp/Bewerbungsanschreiben" + @profile.name
    	    pdf.render_file(name)
-   	    #Lebenslauf
+   	    #Bewerbungsanschreiben
    	    Notification.send_cv(@profile, name).deliver
   	end
 
@@ -31,7 +31,7 @@ class PdfAlsController < ApplicationController
 	    pdf.text_box 	@profile.firstName + " " + @profile.name + "\n" + 
 	    				@profile.address.street + "\n" +
 	    				@profile.address.city + " " + @profile.address.zip + "\n" +
-	    				"Tel.: " + @profile.telefon, :at => [0,730] , :height => 50, :width => 200  
+	    				"Tel.: " + @profile.telefon, :at => [0,730] , :height => 50, :width => 350  
 	    
 	    #pdf.move_down zeilenabstand
 
@@ -41,7 +41,7 @@ class PdfAlsController < ApplicationController
 	    # Anschrift des Unternehmen
 		pdf.text_box 	@loa.to + "\n" +					
 						@loa.street	+ "\n" +
-						@loa.city + " " + @loa.zip, :at => [0,650] , :height => 50, :width => 200 		
+						@loa.city + " " + @loa.zip, :at => [0,650] , :height => 50, :width => 300 		
 
 		# Ort und Dartum
 		pdf.draw_text @profile.address.city + ", " + Time.now.strftime('%d.%m.%Y')	, :at => [400,600]

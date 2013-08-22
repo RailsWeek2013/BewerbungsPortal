@@ -14,11 +14,11 @@
 
   <div class="field">
     <%= f.label :firstName %><br>
-    <%= f.text_field :firstName %>
+    <%= f.text_field :firstName, :maxlength => 30 %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :maxlength => 30 %>
   </div>
   <div class="field">
     <%= f.label :birthday %><br>
@@ -28,23 +28,23 @@
     <%= f.fields_for :address do |addresses_form| %>
         
         <%= addresses_form.label :street %>
-        <%= addresses_form.text_field :street %>
+        <%= addresses_form.text_field :street, :maxlength => 60 %>
 
         <%= addresses_form.label :city %>
-        <%= addresses_form.text_field :city %>
+        <%= addresses_form.text_field :city, :maxlength => 20 %>
 
         <%= addresses_form.label :zip %>
-        <%= addresses_form.text_field :zip %>
+        <%= addresses_form.text_field :zip, :maxlength => 20 %>
 
     <% end %>
   </div>
   <div class="field">
     <%= f.label :marialStatus %><br>
-    <%= f.text_field :marialStatus %>
+    <%= f.text_field :marialStatus, :maxlength => 10 %>
   </div>
   <div class="field">
     <%= f.label :telefon %><br>
-    <%= f.text_field :telefon %>
+    <%= f.telephone_field :telefon, :maxlength => 20 %>
   </div>
   <div>
     <%= f.file_field :avatar %> <%= f.file_field :signature %>

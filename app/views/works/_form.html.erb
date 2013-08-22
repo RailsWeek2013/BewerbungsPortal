@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :Description%><br>
-    <%= f.text_area :desc , :cols => 70, :rows => 20  %>
+    <%= f.text_field :desc , :cols => 100, :rows => 1, :maxlength => 60 %>
   </div>
   <div class="field">
     <%= f.hidden_field :type, :value => "Work" %>
