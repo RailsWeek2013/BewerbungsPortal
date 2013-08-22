@@ -19,6 +19,10 @@ class LoasController < ApplicationController
 
   # GET /loas/new
   def new
+    if(current_user.profile.nil?)
+      redirect_to new_profile_path,
+                  notice: "You need first to fill your profile ;)."
+    end
     @loa = Loa.new
   end
 
@@ -29,6 +33,7 @@ class LoasController < ApplicationController
   # POST /loas
   # POST /loas.json
   def create
+    
     @loa = Loa.new(loa_params)
     @loa.profile = current_user.profile
 
@@ -62,7 +67,7 @@ class LoasController < ApplicationController
   def destroy
     @loa.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Letter of Applicaton was successfully updated.' }
+      format.html { redirect_to new_loa_path, notice: 'Letter of Applicaton was successfully deleted.' }
       format.json { head :no_content }
     end
   end

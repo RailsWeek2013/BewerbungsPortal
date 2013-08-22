@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.create(email: 'test@mail.com', password: 'foobar123', password_confirmation: 'foobar123')
+user = User.create(email: 'ilja.michajlow@mni.thm.de', password: 'foobar123', password_confirmation: 'foobar123')
 
 profile = Profile.create(firstName: "Max", name: "Mustermann", birthday: "2013-08-20", marialStatus: "ledig", telefon: "123456", user_id: user.id)
 
@@ -28,6 +28,6 @@ Course.create(time_start: Date.parse("2005-08-20"), time_end: Date.parse("2005-0
 Course.create(time_start: Date.parse("2007-08-20"), time_end: Date.parse("2007-10-20"), desc: "Java", type: "Course", profile_id: profile.id)
 Course.create(time_start: Date.parse("2013-08-20"), time_end: Date.parse("2013-08-20"), desc: "Ruby On Rails", type: "Course", profile_id: profile.id)
 
-puts "Inser Knowledges"
+puts "Insert Knowledges"
 
 Knowledge.create(name: "Sprachen:", desc: "Englisch, Deutsch, Russisch, Spanisch", profile_id: profile.id)

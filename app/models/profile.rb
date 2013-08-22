@@ -5,7 +5,7 @@ class Profile < ActiveRecord::Base
   has_many :places, dependent: :destroy
   has_many :knowledges, dependent: :destroy
   
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   
   accepts_nested_attributes_for :address
   

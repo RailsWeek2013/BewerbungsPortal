@@ -15,11 +15,13 @@ body {
 
 table{
   margin-top:20px;
-  border:solid;
-  border-width:1px;
-  color:black;
-  width:600px;
+  border-style:solid;
+  border:3px;
   text-align: center;
+  border-color: #FFFFFF;
+  background-color:#FFFFCC ;
+  width : 600px ;
+  padding : 3;
 }
 
 tbody tr:nth-child(2n+1) {

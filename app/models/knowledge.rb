@@ -1,3 +1,3 @@
 class Knowledge < ActiveRecord::Base
-	belongs_to :profile, dependent: :destroy
+	belongs_to :profile
 end
