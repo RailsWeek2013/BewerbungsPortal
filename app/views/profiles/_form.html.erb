@@ -11,14 +11,15 @@
     </div>
   <% end %>
 
+
  <table>
   <tr>
     <td><strong><%= f.label :firstName %></strong></td>
-    <td><%= f.text_field :firstName %></td>
+    <td><%= f.text_field :firstName, :maxlength => 30 %></td>
   </tr> 
   <tr>
     <td><strong><%= f.label :name %></strong></td>
-    <td><%= f.text_field :name %></td>
+    <td><%= f.text_field :name, :maxlength => 30 %></td>
   </tr>
   <tr>
     <td><strong><%= f.label :birthday %></strong></td>
@@ -27,24 +28,24 @@
   <%= f.fields_for :address do |addresses_form| %>
   <tr>
     <td><strong> <%= addresses_form.label :street %></strong></td>
-    <td><%= addresses_form.text_field :street %></td>
+    <td><%= addresses_form.text_field :street, :maxlength => 60 %></td>
   </tr>
   <tr>
     <td><strong><%= addresses_form.label :city %></strong></td>
-    <td><%= addresses_form.text_field :city %></td>
+    <td><%= addresses_form.text_field :city, :maxlength => 20 %></td>
   </tr>
   <tr>
     <td><strong><%= addresses_form.label :zip %></strong></td>
-    <td><%= addresses_form.text_field :zip %></td>
+    <td><%= addresses_form.text_field :zip, :maxlength => 20 %></td>
   </tr>
   <% end %>
   <tr>
     <td><strong><%= f.label :marialStatus %></strong></td>
-    <td><%= f.text_field :marialStatus %></td>
+    <td><%= f.text_field :marialStatus, :maxlength => 10 %></td>
   </tr>
   <tr>
     <td><strong><%= f.label :telefon %><br></strong></td>
-    <td><%= f.text_field :telefon %></td>
+    <td><%= f.text_field :telefon, :maxlength => 20 %></td>
   </tr>
   <tr>
     <td><strong>Avatar</strong></td>
@@ -55,6 +56,7 @@
     <td><%= f.file_field :signature %></td>
   </tr>
 </table>
+
 
   <div class="actions">
     <%= f.submit %>

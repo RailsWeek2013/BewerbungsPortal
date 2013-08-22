@@ -17,27 +17,28 @@
   <table>
   <tr>
     <td><strong><%= f.label :to %></strong></td>
-    <td><%= f.text_field :to %></td>
+    <td><%= f.text_field :to, :maxlength => 60 %></td>  
+
   </tr>
   <tr>
     <td><strong><%= f.label :street %></strong></td>
-    <td> <%= f.text_field :street %></td>
+    <td> <%= f.text_field :street, :maxlength => 60 %></td>
   </tr>
   <tr>
     <td><strong><%= f.label :city %></strong></td>
-    <td><%= f.text_field :city %></td>
+    <td><%= f.text_field :city, :maxlength => 60 %></td>
   </tr>
   <tr>
     <td><strong><%= f.label :zip %></strong></td>
-    <td><%= f.text_field :zip %></td>
+    <td><%= f.text_field :zip, :maxlength => 60 %></td>
   </tr>
   <tr>
     <td><strong><%= f.label :subject %></strong></td>
-    <td><%= f.text_field :subject %></td>
+    <td><%= f.text_field :subject, :maxlength => 100 %></td>
   </tr>
   <tr>
     <td><strong><%= f.label :what %></strong></td>
-    <td> <%= f.text_area :what , :cols => 50, :rows => 15 %></td>
+    <td> <%= f.text_area :what , :cols => 50, :rows => 15, :maxlength => 1600 %></td>
   </tr>
 </table>
   <div class="actions">

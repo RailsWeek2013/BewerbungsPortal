@@ -6,15 +6,15 @@ class PdfCvsController < ApplicationController
 
 	def download
 		pdf = index
-  		send_data pdf.render, :filename => 'Bewerbung.pdf'
+  		send_data pdf.render, :filename => 'Lebenslauf.pdf'
   	end
 
   	def save 
   		pdf = index
   		#Speichert die PDF in /tmp/prawn.pdf
-	    name = "/tmp/Bewerbung" + @profile.name
+	    name = "/tmp/Lebenslauf"
    	    pdf.render_file(name)
-   	    #Bewerbungsschreiben
+   	    #Lebenslauf
    	    Notification.send_cv(@profile, name).deliver
   	end
 
@@ -42,7 +42,7 @@ class PdfCvsController < ApplicationController
 
 	 
 		verschieben = 520
-		abstand = 15
+		abstand = 13
 
 		pdf.draw_text "Schulbildung", :at => [0, verschieben], :style => :bold
 		@schools = current_user.profile.places.where(:type => School)
