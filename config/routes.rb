@@ -21,8 +21,6 @@ BP::Application.routes.draw do
 
   #resources :pdf
 
-  root :to => "home#index"
-
   get "home/index"
   devise_for :users
   
@@ -41,6 +39,11 @@ BP::Application.routes.draw do
   get "pdf_als/download/:id" => "pdf_als#download", as: "pdf_als_download"
   get "pdf_als/save/:id" => "pdf_als#save", as: "pdf_als_save"
 
+
+  scope "(:locale)", :locale => /en|de/ do
+    root :to => 'home#index'
+    get "home/index"
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

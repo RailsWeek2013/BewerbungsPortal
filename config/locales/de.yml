@@ -1,0 +1,76 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+de:
+  hello: 		"Hallo Welt!"
+
+  
+  home:			"Home"
+  profile:		"Profil"
+  school:		"Schule"
+  education:	"Ausbildung"
+  work:			"Arbeit"
+  course:		"Kurs"
+  knowledge:	"Kenntnisse"
+  loa_menu:		"Bewerbungs-schreiben"
+  loa:			"Bewerbungsschreiben"
+  dtd:			"Dokumenten herunterladen"
+  about:		"Über uns"
+  contact:		"Kontaktdaten"
+
+  hello_word:	"Das ist die Hauptseite!"
+  contact_word:	"Das ist die 'Contact' Seite!"
+  about_word:	"Das ist 'Über uns' Seite!"
+
+  ready_to_download: "Bereit zum Herunterladen"
+  loa_desc:		"Das ist Ihr Bewerbungsschreiben"
+
+  cv:			"Lebenslauf"
+  cv_desc:		"Das ist Ihr Lebenslauf"
+
+  problem:		"Problem"
+
+  fill_fields:	"Fühlen Sie bitte folgende Felder aus:"
+
+  general_info:	"Allgemeine Information"
+
+  address:		"Anschrift"	
+
+  edit:			"Editieren"
+
+  delete:		"Löschen"
+
+  name:			"Name"
+  birthday:		"Geburtsdatum"
+  status:		"Familienstand"
+  telefon:		"Telefonnummer"
+  street:		"Staße"
+  city:			"Stadt"
+  zip:			"PLZ"
+
+  language:		"Sprache"
+
+  school_list:	"Schulliste"
+  new_school:	"Neue Schule"
+
+  from:			"Von"
+  to:			"Bis"
+  desc:			"Beschreibung"
