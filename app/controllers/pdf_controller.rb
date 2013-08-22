@@ -205,7 +205,7 @@ class PdfController < ApplicationController
 
 	# Use callbacks to share common setup or constraints between actions.
     def set_loa
-      @loa = Loa.find(params[:id])
+      @loa = @profile.loa
     end
 
     

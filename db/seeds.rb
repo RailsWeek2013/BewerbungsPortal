@@ -31,3 +31,4 @@ Course.create(time_start: Date.parse("2013-08-20"), time_end: Date.parse("2013-0
 puts "Insert Knowledges"
 
 Knowledge.create(name: "Sprachen:", desc: "Englisch, Deutsch, Russisch, Spanisch", profile_id: profile.id)
+
