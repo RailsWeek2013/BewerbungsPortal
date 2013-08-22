@@ -15,6 +15,8 @@ class PdfController < ApplicationController
   		#Speichert die PDF in /tmp/prawn.pdf
 	    name = "/tmp/Bewerbungsanschreiben" #+ @profile.name
    	    pdf.render_file(name)
+   	    #Bewerbung
+   	    Notification.send_cv(@profile, name).deliver
   	end
 
   	private

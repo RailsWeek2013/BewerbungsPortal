@@ -28,4 +28,7 @@
 
 <br>
 
-<%= link_to 'New Knowledge', new_knowledge_path %>
+
+<% if @knowledges.count < 4 %>
+  <%= link_to 'New Knowledge', new_knowledge_path %>
+<% end %>
