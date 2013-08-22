@@ -13,7 +13,7 @@
 
 					<li>
 						<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "75x75"), pdf_als_download_path(current_user.profile)  %>
-						<%= link_to image_tag( 'email.jpg', :size => "75x75"), pdf_download_path(current_user.profile)  %>
+						<%= link_to image_tag( 'email.jpg', :size => "75x75"), pdf_save_path(current_user.profile)  %>
 						<h3><%= I18n.t("loa")%> (<%= I18n.t("ready_to_download")%>!)</h3>
 						<h4><%= I18n.t("loa_desc")%></h4>
 					</li>
@@ -34,6 +34,7 @@
 				<% else %>
 				<li>
 						<%= image_tag( 'cant_download.jpg', :size => "75x75")%>
+						<%= image_tag( 'bad_email.jpg', :size => "75x75")%>
 						<h3><%= I18n.t("loa")%> (<%= I18n.t("problem")%>!)</h3>
 						<h4><%= link_to "Please create first a Letter of Application!", new_loa_path %></h4>
 					</li>	
