@@ -42,7 +42,7 @@ class PdfCvsController < ApplicationController
 
 	 
 		verschieben = 520
-		abstand = 15
+		abstand = 13
 
 		pdf.draw_text "Schulbildung", :at => [0, verschieben], :style => :bold
 		@schools = current_user.profile.places.where(:type => School)
