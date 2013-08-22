@@ -47,7 +47,7 @@ class PdfAlsController < ApplicationController
 		pdf.draw_text @profile.address.city + ", " + Time.now.strftime('%d.%m.%Y')	, :at => [400,600]
 
 		# Betreff des Anschreibens
-		pdf.text_box @loa.subject, :at => [0, 550], :height => 20, :width => 200				
+		pdf.text_box @loa.subject, :at => [0, 550], :height => 40, :width => 500				
 		
 		# Name es Anzuschreibenen
 		pdf.draw_text "Sehr geehrte Damen und Herren,", :at => [0, 520] 
