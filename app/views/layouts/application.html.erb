@@ -7,46 +7,46 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	
 	<div id = "container">
 		
 		<div id = "header">
 			<h1>CV Creator</h1>
+			
 		</div>
 
 		<div id = "content">
 			<div id = "menu_div">
 				<div id='cssmenu'>
 					<ul>
-						<li class='active'><%= link_to "Home", root_path %></li>
+						<li class='active'><%= link_to  I18n.t("home"), root_path %></li>
 						<li class='has-sub'>
 							<% if !current_user.nil? %>
 								<% if current_user.profile.nil? %>
-									<%= link_to "Profile", new_profile_path %>
+									<%= link_to I18n.t("profile"), new_profile_path %>
 								<% else %>
-									<%= link_to "Profile", profile_path(current_user.profile) %>
+									<%= link_to I18n.t("profile"), profile_path(current_user.profile) %>
 								<% end %>
 							<% end %>
 							<ul>
-								<li><%= link_to "School", schools_path %></li>
-								<li><%= link_to "Education", educations_path %></li>
-								<li><%= link_to "Work", works_path %></li>
-								<li><%= link_to "Course", courses_path %></li>
-								<li class='last'><%= link_to "Knowledge", knowledges_path %></li>
+								<li><%= link_to I18n.t("school"), schools_path %></li>
+								<li><%= link_to I18n.t("education"), educations_path %></li>
+								<li><%= link_to I18n.t("work"), works_path %></li>
+								<li><%= link_to I18n.t("course"), courses_path %></li>
+								<li class='last'><%= link_to I18n.t("knowledge"), knowledges_path %></li>
 							</ul>
 						</li>
 
 						<% unless current_user.nil? %>
 							<% unless current_user.profile.nil? or current_user.profile.loa.nil? %>
-									<li><%= link_to "Letter Of Application", loa_path(current_user.profile.loa) %></li>
+									<li><%= link_to I18n.t("loa_menu"), loa_path(current_user.profile.loa) %></li>
 								<% else %>
-									<li><%= link_to "Letter Of Application", new_loa_path %></li>
+									<li><%= link_to I18n.t("loa_menu"), new_loa_path %></li>
 							<% end %>
 						<% end %>
 
-						<li><%= link_to "Documents to Download", download_path %></li>
-						<li><%= link_to "About", about_path %></li>
-						<li class='last'><%= link_to "Contact", contact_path %></li>
+						<li><%= link_to I18n.t("dtd"), download_path %></li>
+						<li><%= link_to I18n.t("about"), about_path %></li>
+						<li class='last'><%= link_to I18n.t("contact"), contact_path %></li>
 					</ul>
 				</div>
 			</div>
@@ -65,8 +65,13 @@
 			<%= link_to "logout", destroy_user_session_path, method: :delete%>
 			<% else %>
 			<%= link_to "login", new_user_session_path %>
-			<% end %>
-
+			<% end %>&nbsp
+			<div style="float:right">
+			<%= I18n.t("language")%>:
+			<%= link_to_unless I18n.locale == :en, "English", locale: :en %>
+			|
+			<%= link_to_unless I18n.locale == :de, "Deutsch", locale: :de %>	
+			</div>
 		</div>
 	</div>
 </body>

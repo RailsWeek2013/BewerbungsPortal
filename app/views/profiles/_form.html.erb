@@ -10,45 +10,51 @@
       </ul>
     </div>
   <% end %>
- 
 
-  <div class="field">
-    <%= f.label :firstName %><br>
-    <%= f.text_field :firstName %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :birthday %><br>
-    <%= f.date_select :birthday, :start_year => 1900, :end_year => 2000  %>
-  </div>
-  <div class="field">
-    <%= f.fields_for :address do |addresses_form| %>
-        
-        <%= addresses_form.label :street %>
-        <%= addresses_form.text_field :street %>
-
-        <%= addresses_form.label :city %>
-        <%= addresses_form.text_field :city %>
-
-        <%= addresses_form.label :zip %>
-        <%= addresses_form.text_field :zip %>
-
-    <% end %>
-  </div>
-  <div class="field">
-    <%= f.label :marialStatus %><br>
-    <%= f.text_field :marialStatus %>
-  </div>
-  <div class="field">
-    <%= f.label :telefon %><br>
-    <%= f.text_field :telefon %>
-  </div>
-  <div>
-    <%= f.file_field :avatar %> <%= f.file_field :signature %>
-  </div>
+ <table>
+  <tr>
+    <td><strong><%= f.label :firstName %></strong></td>
+    <td><%= f.text_field :firstName %></td>
+  </tr> 
+  <tr>
+    <td><strong><%= f.label :name %></strong></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <td><strong><%= f.label :birthday %></strong></td>
+    <td><%= f.date_select :birthday, :start_year => 1900, :end_year => 2000  %></td>
+  </tr>
+  <%= f.fields_for :address do |addresses_form| %>
+  <tr>
+    <td><strong> <%= addresses_form.label :street %></strong></td>
+    <td><%= addresses_form.text_field :street %></td>
+  </tr>
+  <tr>
+    <td><strong><%= addresses_form.label :city %></strong></td>
+    <td><%= addresses_form.text_field :city %></td>
+  </tr>
+  <tr>
+    <td><strong><%= addresses_form.label :zip %></strong></td>
+    <td><%= addresses_form.text_field :zip %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td><strong><%= f.label :marialStatus %></strong></td>
+    <td><%= f.text_field :marialStatus %></td>
+  </tr>
+  <tr>
+    <td><strong><%= f.label :telefon %><br></strong></td>
+    <td><%= f.text_field :telefon %></td>
+  </tr>
+  <tr>
+    <td><strong>Avatar</strong></td>
+    <td><%= f.file_field :avatar %></td>
+  </tr>
+  <tr>
+    <td><strong>Signature</strong></td>
+    <td><%= f.file_field :signature %></td>
+  </tr>
+</table>
 
   <div class="actions">
     <%= f.submit %>

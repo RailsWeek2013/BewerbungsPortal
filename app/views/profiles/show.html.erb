@@ -4,44 +4,57 @@
   <br/>
 
   <p>
-    <h1> Allgemeine Information </h1>
+    <h1> <%= I18n.t("general_info")%> </h1>
     <hr>
   </p>
-  <br/>
-  <p>
-   <h2> <%= @profile.firstName %> <%= @profile.name %></h2>
-  </p>
-
-  <p>
-    <h2><%= @profile.birthday %></h2>
-  </p>
-  <p>
-    <h2><%= @profile.marialStatus %></h2>
-  </p>
-
-  <p>
-    <strong>Telefon:</strong>
-    <h2><%= @profile.telefon %></h2>
-  </p>
-
+  
   <br/>
 
+  <table style = "width:100%">
+    <tr>
+      <td><strong><%= I18n.t("name")%></strong></td>
+      <td><%= @profile.firstName %> <%= @profile.name %></td>
+    </tr>
+    <tr>
+      <td><strong><%= I18n.t("birthday")%></strong></td>
+      <td><%= @profile.birthday %></td>
+    </tr>
+    <tr>
+      <td><strong><%= I18n.t("status")%></strong></td>
+      <td><%= @profile.marialStatus %></td>
+    </tr>
+    <tr>
+      <td><strong><%= I18n.t("telefon")%></strong></td>
+      <td><%= @profile.telefon %></td>
+    </tr>
+  </table>
+
+  <br>
+
   <p>
-    <h1>Addresse:</h1>
+    <h1><%= I18n.t("address")%></h1>
     <hr>
   </p>
 
   <br/>
 
-  <p>
-    <h2><%= @profile.address.street %></h2>
-  </p>
+  <table style = "width:100%">
+    <tr>
+      <td><strong><%= I18n.t("street")%></strong></td>
+      <td><%= @profile.address.street %></td>
+    </tr>
+    <tr>
+      <td><strong><%= I18n.t("city")%></strong></td>
+      <td><%= @profile.address.city %></td>
+    </tr>
+    <tr>
+      <td><strong><%= I18n.t("zip")%></strong></td>
+      <td><%= @profile.address.zip %></td>
+    </tr>
+  </table>
 
-  <p>
-    <h2><%= @profile.address.city %>, <%= @profile.address.zip %></h2>
-  </p>
-  <%= link_to 'Edit', edit_profile_path(@profile) %> |
-  <%= link_to 'Delete', profile_path, method: :delete %>
+  <%= link_to I18n.t("edit"), edit_profile_path(@profile) %> |
+  <%= link_to I18n.t("delete"), profile_path, method: :delete %>
 </div>
 
 <div id = "image_div">

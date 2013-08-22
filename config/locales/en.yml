@@ -20,4 +20,57 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: 		"Hello world"
+  
+ 
+  home: 		"Home"
+  profile:		"Profile"
+  school:		"School"
+  education:	"Education"
+  work:			"Work"
+  course:		"Course"
+  knowledge:	"Knowledge"
+  loa_menu:		"Letter of Application"
+  loa:			"Letter of Application"
+  dtd:			"Documents to Download"
+  about:		"About"
+  contact:		"Contact"
+
+  hello_word:	"This is the main page!"
+  contact_word:	"This is the 'Contact' page!"
+  about_word:	"This is 'About' page!"
+
+  ready_to_download: "Ready to download"
+  loa_desc:		"This is your letter of application"
+
+  cv:			"CV"
+  cv_desc:		"This is your CV"
+
+  problem:		"Problem"
+
+  fill_fields:	"Please fill this fields:"
+
+  general_info: "General information"	
+
+  address:		"Address"		
+
+  edit:			"Edit"
+
+  delete:		"Delete"
+
+  name:			"Name"
+  birthday:		"Birthday"
+  status:		"Status"
+  telefon:		"Telefon"
+  street:		"Street"
+  city:			"City"
+  zip:			"Zip"
+
+  language:		"Language"
+
+  school_list:	"Listing schools"
+  new_school:	"New school"
+
+  from:			"From"
+  to:			"To"
+  desc:			"Description"
