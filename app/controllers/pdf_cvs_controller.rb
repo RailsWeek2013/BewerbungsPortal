@@ -1,9 +1,23 @@
 class PdfCvsController < ApplicationController
 	require 'fileutils'
-	before_action :set_profile, only: [:index]
-	before_action :set_school, only: [:index]
+	before_action :set_profile, only: [:index, :download, :save]
+	before_action :set_school, only: [:index, :download, :save]
 
-	def index
+
+	def download
+		pdf = index
+  		send_data pdf.render, :filename => 'Bewerbung.pdf'
+  	end
+
+  	def save 
+  		pdf = index
+  		#Speichert die PDF in /tmp/prawn.pdf
+	    name = "/tmp/Bewerbung" + @profile.name
+   	    pdf.render_file(name)
+  	end
+
+	private
+	def index 
 
 		pdf = Prawn::Document.new(:pages_size => "A4", :size => 16)
 		pdf.fill_color "000000"
@@ -86,15 +100,10 @@ class PdfCvsController < ApplicationController
 
 		pdf.image sig,  :at => [0,10],  :width => 50
 
-
-	    
-	    send_data pdf.render, :filename => 'Bewerbungsanschreiben.pdf'
-
-
-	    #Speichert die PDF in /tmp/prawn.pdf
-	    #name = "/tmp/Bewerbungsanschreiben" + @profile.name
-   	    #pdf.render_file(name)
+		return pdf
    	end
+
+   	
 
    	private
     # Use callbacks to share common setup or constraints between actions.

@@ -41,9 +41,13 @@
     <h2><%= @profile.address.city %>, <%= @profile.address.zip %></h2>
   </p>
   <%= link_to 'Edit', edit_profile_path(@profile) %> |
-  <%= link_to 'Print all', pdf_path(@profile)  %> |
-  <%= link_to 'Print CV', pdf_cvs_path(@profile)  %> |
-  <%= link_to 'Print AL', pdf_als_path(@profile)  %> |
+  <%= link_to 'Dowmload all', pdf_download_path(@profile)  %> |
+  <%= link_to 'Save all', pdf_save_path(@profile)  %> |
+  <%= link_to 'CV download', pdf_cvs_download_path(@profile)  %> |
+  <%= link_to 'CV save', pdf_cvs_save_path(@profile)  %> |
+  <%= link_to 'AL download', pdf_als_download_path(@profile)  %> |
+  <%= link_to 'AL save', pdf_als_save_path(@profile)  %> |
+
   <%= link_to 'Delete', profile_path, method: :delete %>
 </div>
 

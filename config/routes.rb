@@ -1,9 +1,5 @@
 BP::Application.routes.draw do
 
-
-  get "pdf_als/index"
-  get "pdf_cvs/index"
-
   resources :loas, except: :index
 
 
@@ -34,10 +30,17 @@ BP::Application.routes.draw do
   get "contact" => "home#contact", as: "contact"
   get "download" => "home#download", as: "download"
   #get "pfd" => "pfd#index", as: "pfd"
-  get "pdf/:id" => "pdf#index", as: "pdf"
+
+  get "pdf/download/:id" => "pdf#download", as: "pdf_download"
+  get "pdf/save/:id" => "pdf#save", as: "pdf_save"
+
   
-  get "pdf_cvs/:id" => "pdf_cvs#index", as: "pdf_cvs"
-  get "pdf_als/:id" => "pdf_als#index", as: "pdf_als"
+  get "pdf_cvs/download/:id" => "pdf_cvs#download", as: "pdf_cvs_download"
+  get "pdf_cvs/save/:id" => "pdf_cvs#save", as: "pdf_cvs_save"
+
+  get "pdf_als/download/:id" => "pdf_als#download", as: "pdf_als_download"
+  get "pdf_als/save/:id" => "pdf_als#save", as: "pdf_als_save"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

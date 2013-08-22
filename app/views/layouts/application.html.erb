@@ -35,11 +35,9 @@
 								<li class='last'><%= link_to "Knowledge", knowledges_path %></li>
 							</ul>
 						</li>
-						<% if !current_user.profile.loa.nil? %>
-							<li><%= link_to "Letter Of Application", loa_path(current_user.profile.loa) %></li>
-						<% else %>
-							<li><%= link_to "Letter Of Application", new_loa_path %></li>
-						<% end %>
+						
+						
+						
 						<li><%= link_to "Documents to Download", download_path %></li>
 						<li><%= link_to "About", about_path %></li>
 						<li class='last'><%= link_to "Contact", contact_path %></li>

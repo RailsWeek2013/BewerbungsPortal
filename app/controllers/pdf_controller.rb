@@ -1,10 +1,23 @@
 class PdfController < ApplicationController
 	require 'fileutils'
 
-	before_action :set_profile, only: [:index]
-	before_action :set_school, only: [:index]
-	before_action :set_loa, only: [:index]
+	before_action :set_profile, only: [:index, :download, :save]
+	before_action :set_school, only: [:index, :download, :save]
+	before_action :set_loa, only: [:index, :download, :save]
 
+	def download
+		pdf = index
+  		send_data pdf.render, :filename => 'Bewerbungsanschreiben.pdf'
+  	end
+
+  	def save 
+  		pdf = index
+  		#Speichert die PDF in /tmp/prawn.pdf
+	    name = "/tmp/Bewerbungsanschreiben" #+ @profile.name
+   	    pdf.render_file(name)
+  	end
+
+  	private
 	def index
   		pdf = Prawn::Document.new(:pages_size => "A4", :size => 16)
 	    zeilenabstand = 20
@@ -142,24 +155,14 @@ class PdfController < ApplicationController
 
 		pdf.image sig,  :at => [0,10],  :width => 50
 
-		senden pdf
-	    #send_data pdf.render, :filename => 'Bewerbungsanschreiben.pdf'
+		pdf.start_new_page
+		pdf.line [0,200], [100, 150]
 
-	    #speichern pdf
-	    #Speichert die PDF in /tmp/prawn.pdf
-	    #name = "/tmp/Bewerbungsanschreiben" + @profile.name
-   	    #pdf.render_file(name)
+		return pdf
+		
   	end
 
-  	def senden pdf
-  		send_data pdf.render, :filename => 'Bewerbungsanschreiben.pdf'
-  	end
-
-  	def speichern pdf
-  		#Speichert die PDF in /tmp/prawn.pdf
-	    name = "/tmp/Bewerbungsanschreiben" + @profile.name
-   	    pdf.render_file(name)
-  	end
+  	
 
 
   	private

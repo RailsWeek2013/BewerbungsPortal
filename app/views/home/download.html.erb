@@ -12,7 +12,7 @@
 					<% unless @incomplete_attributes.any? %>    
 
 					<li>
-						<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "100x100"), pdf_als_path(current_user.profile)  %>
+						<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "100x100"), pdf_als_download_path(current_user.profile)  %>
 						<h3>Letter of Application (Ready to download!)</h3>
 						<h4>This is your letter of application</h4>
 					</li>
@@ -20,7 +20,7 @@
 					<% else %>
 
 					<li>
-						<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "100x100"), pdf_path(current_user.profile)  %>
+						<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "100x100")  %>
 						<h3>Letter of Application (Not ready to download!)</h3>
 						<h4><u>Please fill this fields:</u></h4>
 						<% @incomplete_attributes.each do |i| %>
@@ -41,7 +41,7 @@
 
 			<% unless @incomplete_attributes.any? %>
 			<li>
-				<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "100x100"), pdf_cvs_path(current_user.profile)  %>
+				<%= link_to image_tag( 'PDF_File_normal.jpg', :size => "100x100"), pdf_cvs_download_path(current_user.profile)  %>
 				<h3>CV (Ready to download!)</h3>
 				<h4>This is your CV</h4>
 			</li>

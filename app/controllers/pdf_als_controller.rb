@@ -1,14 +1,26 @@
 class PdfAlsController < ApplicationController
  require 'fileutils'
 
-	before_action :set_profile, only: [:index]
-	before_action :set_school, only: [:index]
-	before_action :set_loa, only: [:index]
+	before_action :set_profile, only: [:index, :download, :save]
+	before_action :set_school, only: [:index, :download, :save]
+	before_action :set_loa, only: [:index, :download, :save]
 
+	def download
+		pdf = index
+  		send_data pdf.render, :filename => 'Lebenslauf.pdf'
+  	end
 
-  def index
+  	def save 
+  		pdf = index
+  		#Speichert die PDF in /tmp/prawn.pdf
+	    name = "/tmp/Lebenslauf" + @profile.name
+   	    pdf.render_file(name)
+  	end
 
-  	pdf = Prawn::Document.new(:pages_size => "A4", :size => 16)
+	private
+  	def index
+
+  		pdf = Prawn::Document.new(:pages_size => "A4", :size => 16)
 	    zeilenabstand = 20
 	    pdf.fill_color "000000"
 	    pdf.font "Times-Roman"    
@@ -63,13 +75,8 @@ class PdfAlsController < ApplicationController
 		# Unterschrift
 		pdf.image sig,  :at => [0,50],  :width => 50
 
+		return pdf
 
-		send_data pdf.render, :filename => 'Bewerbung.pdf'
-
-
-	    #Speichert die PDF in /tmp/prawn.pdf
-	    #name = "/tmp/Bewerbungsanschreiben" + @profile.name
-   	    #pdf.render_file(name)
   end
 
   private
