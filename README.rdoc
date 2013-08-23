@@ -1,20 +1,21 @@
 == README
 
 Funktions:
-Benutzer:
-Minimum
-Registrieren
-Einlogen
-Auslogen
-Dokumenten CRUDL (Bewerbungschreiben, Lebenslauf)
-Upload (Zeugnisse, Bild)
-Download (Einzelne Dateien)
-Maximum
-ZIP
-Drag&Drop Reihenfolge von Unterlagen
-Select nur die Dokumene für Bewerbungsunterlagen
-Download (Bewerbung + Lebenslauf + Zeugnisse)
-Drücken
-Senden per Email (an sich selbst)
-Admin
+  Benutzer:
+    Minimum
+      Registrieren
+        Einlogen
+        Auslogen
+      Dokumenten CRUDL (Bewerbungschreiben, Lebenslauf)
+      Upload (Zeugnisse, Bild)
+      Download (Einzelne Dateien)
+
+    Maximum
+      ZIP
+      Drag&Drop Reihenfolge von Unterlagen
+      Select nur die Dokumene für Bewerbungsunterlagen
+      Download (Bewerbung + Lebenslauf + Zeugnisse)
+      Drücken
+      Senden per Email (an sich selbst)
+      Admin
 
