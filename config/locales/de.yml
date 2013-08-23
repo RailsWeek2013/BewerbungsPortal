@@ -75,7 +75,7 @@ de:
   to:			"Bis"
   desc:			"Beschreibung"
 
-  cv_creator: "Lebenslauf ersteller"
+  cv_creator: "Bewerbungsportal"
 
   to2: "An"
   subject: "Betreff"
@@ -107,3 +107,4 @@ de:
   new_education: "Neue Ausbildung einfügen"
   new_course: "Neue Kurse einfügen"
   new_Knowledge: "Neue Kenntnisse einfügen"
+  bp: "BP"

@@ -75,7 +75,7 @@ en:
   to:			"To"
   desc:			"Description"
 
-  cv_creator: "CV Creator"
+  cv_creator: "Applicationsportal"
 
   to2: "To"
   subject: "Subject"
@@ -107,3 +107,4 @@ en:
   new_education: "New education"
   new_course: "New course"
   new_Knowledge: "New Knowledge"
+  bp: "AP"
