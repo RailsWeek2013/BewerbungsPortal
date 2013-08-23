@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Funktions:
+Benutzer:
+Minimum
+Registrieren
+Einlogen
+Auslogen
+Dokumenten CRUDL (Bewerbungschreiben, Lebenslauf)
+Upload (Zeugnisse, Bild)
+Download (Einzelne Dateien)
+Maximum
+ZIP
+Drag&Drop Reihenfolge von Unterlagen
+Select nur die Dokumene für Bewerbungsunterlagen
+Download (Bewerbung + Lebenslauf + Zeugnisse)
+Drücken
+Senden per Email (an sich selbst)
+Admin
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
