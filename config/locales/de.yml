@@ -74,3 +74,36 @@ de:
   from:			"Von"
   to:			"Bis"
   desc:			"Beschreibung"
+
+  cv_creator: "Lebenslauf ersteller"
+
+  to2: "An"
+  subject: "Betreff"
+  what: "Was"
+
+  edit_loa: "Editieren: Bewerbungsschreiben"
+  new_loa: "Neues Bewerbungsschreiben"
+
+  prohibited: "Verboten: Dieses Bewerbungsschreiben wird nicht gespeichert"
+  show: "Anzeigen"
+  back: "Zurück"
+
+  hello: "Hallo"
+  msg_acc: "Ihr Konto wurde Aktiviert. Haben Sie einen schönen Tag! Wall-E."
+  msg_att: "Im Angang finden Sie Ihren Lebenslauf. Haben Sie einen schönen Tag! Wall-E."
+
+  logout: "Abmelden"
+  login: "Anmelden"
+
+  german: "Deutsch"
+  english: "Englisch"
+
+  msg_confirm: "Sind Sie sicher?"
+  listing_works: "Arbeitsliste"
+  listing_edu: "Ausbildungliste"
+  listing_cours: "Kursliste"
+  listing_knowledges: "Kenntnissliste"
+  new_work: "Neue Arbeit einfügen"
+  new_education: "Neue Ausbildung einfügen"
+  new_course: "Neue Kurse einfügen"
+  new_Knowledge: "Neue Kenntnisse einfügen"

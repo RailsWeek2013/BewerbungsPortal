@@ -38,6 +38,7 @@ gem "paperclip", "~>3.0"
 
 gem 'prawn', '>= 0.11.1'
 
+gem "i18n", "~> 0.6.5"
 
 
 # Use ActiveModel has_secure_password

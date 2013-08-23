@@ -2,27 +2,27 @@
 
 <br>
 
-<h1>Letter of Application</h1>
+<h1><%= I18n.t("loa")%></h1>
 
 <table>
   <tr>
-    <td><strong>To:</strong></td>
+    <td><strong><%= I18n.t("to2")%></strong></td>
     <td><%= @loa.to %></td>
   </tr>
   <tr>
-    <td><strong>Address</strong></td>
+    <td><strong><%= I18n.t("address")%></strong></td>
     <td><%= @loa.street %>, <%= @loa.city %>, <%= @loa.zip %></td>
   </tr>
   <tr>
-    <td><strong>Subject:</strong></td>
+    <td><strong><%= I18n.t("subject")%></strong></td>
     <td><%= @loa.subject %></td>
   </tr>
   <tr>
-    <td><strong>What:</strong></td>
+    <td><strong><%= I18n.t("what")%></strong></td>
     <td width="400px"><%= @loa.what %></td>
   </tr>
 </table>
 
-<%= link_to 'Edit', edit_loa_path(@loa) %> |
-<%= link_to 'Delete', loa_path, method: :delete %>
+<%= link_to I18n.t("edit"), edit_loa_path(@loa) %> |
+<%= link_to I18n.t("delete"), loa_path, method: :delete %>
 

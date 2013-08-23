@@ -22,7 +22,7 @@
         <td><%= school.time_end %></td>
         <td><%= truncate(school.desc, 25) %></td>
         <td><%= link_to I18n.t("edit"), edit_school_path(school) %></td>
-        <td><%= link_to I18n.t("delete"), school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to I18n.t("delete"), school, method: :delete, data: { confirm: I18n.t("msg_confirm") } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -74,3 +74,36 @@ en:
   from:			"From"
   to:			"To"
   desc:			"Description"
+
+  cv_creator: "CV Creator"
+
+  to2: "To"
+  subject: "Subject"
+  what: "What"
+
+  edit_loa: "Editing: Letter of Application"
+  new_loa: "New: Letter of Application"
+
+  prohibited: "prohibited this Letter of Application from being saved"
+  show: "Show"
+  back: "Back"
+
+  hello: "Hello"
+  msg_acc: "your new account is active. Have a great day! Wall-E."
+  msg_att: "in attached file you find your CV. Have a great day! Wall-E."
+
+  logout: "logout"
+  login: "login"
+
+  german: "german"
+  english: "english"
+
+  msg_confirm: "Are you sure?"
+  listing_works: "Listing works"
+  listing_edu: "Listing educations"
+  listing_cours: "Listing courses"
+  listing_knowledges: "Listing knowledges"
+  new_work: "New work insert"
+  new_education: "New education"
+  new_course: "New course"
+  new_Knowledge: "New Knowledge"

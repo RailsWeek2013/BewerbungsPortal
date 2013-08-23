@@ -10,7 +10,7 @@
 	<div id = "container">
 		
 		<div id = "header">
-			<h1>CV Creator</h1>
+			<h1><%=I18n.t("cv_creator")%></h1>
 			
 		</div>
 
@@ -62,15 +62,15 @@
 		<div id="footer">
 			&copy 2013 |
 			<% if user_signed_in? %>
-			<%= link_to "logout", destroy_user_session_path, method: :delete%>
+			<%= link_to I18n.t("logout"), destroy_user_session_path, method: :delete%>
 			<% else %>
-			<%= link_to "login", new_user_session_path %>
+			<%= link_to I18n.t("login"), new_user_session_path %>
 			<% end %>&nbsp
 			<div style="float:right">
 			<%= I18n.t("language")%>:
-			<%= link_to_unless I18n.locale == :en, "English", locale: :en %>
+			<%= link_to_unless I18n.locale == :en, I18n.t("english"), locale: :en %>
 			|
-			<%= link_to_unless I18n.locale == :de, "Deutsch", locale: :de %>	
+			<%= link_to_unless I18n.locale == :de, I18n.t("german"), locale: :de %>	
 			</div>
 		</div>
 	</div>

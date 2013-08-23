@@ -1,6 +1,6 @@
-<h1>Editing: Letter of Application</h1>
+<h1><%= I18n.t("edit_loa")%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @loa %> |
-<%= link_to 'Back', loa_path(@loa) %>
+<%= link_to I18n.t("show"), @loa %> |
+<%= link_to I18n.t("back"), loa_path(@loa) %>

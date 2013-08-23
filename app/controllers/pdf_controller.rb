@@ -27,51 +27,39 @@ class PdfController < ApplicationController
 	    pdf.font "Times-Roman"    
 	    
 	    # Anschrift des Bewerbers
-	    pdf.text @profile.firstName + " " + @profile.name
-	    pdf.text @profile.address.street
-	    pdf.text @profile.address.city + " " + @profile.address.zip
-	    pdf.text "Tel.: " + @profile.telefon
+	    pdf.text_box 	@profile.firstName + " " + @profile.name + "\n" + 
+	    				@profile.address.street + "\n" +
+	    				@profile.address.city + " " + @profile.address.zip + "\n" +
+	    				"Tel.: " + @profile.telefon, :at => [0,730] , :height => 50, :width => 350  
 	    
-	    pdf.move_down zeilenabstand
+	    #pdf.move_down zeilenabstand
 
 	    # Bild des Bewerbers
-	    pdf.image pic, :at => [450,700], :width => 100 
+	    pdf.image pic, :at => [450,730], :width => 80, :height => 120
 
 	    # Anschrift des Unternehmen
-		pdf.text @loa.to					
-		pdf.text @loa.street	
-		pdf.text @loa.city + " " + @loa.zip 		
-
-		pdf.move_down zeilenabstand
+		pdf.text_box 	@loa.to + "\n" +					
+						@loa.street	+ "\n" +
+						@loa.city + " " + @loa.zip, :at => [0,650] , :height => 50, :width => 300 		
 
 		# Ort und Dartum
-		pdf.draw_text @profile.address.city + ", " + Time.now.strftime('%d.%m.%Y')	, :at => [400,550]
-		
-		pdf.move_down zeilenabstand
+		pdf.draw_text @profile.address.city + ", " + Time.now.strftime('%d.%m.%Y')	, :at => [400,600]
 
 		# Betreff des Anschreibens
-		pdf.text @loa.subject				
-
-		pdf.move_down zeilenabstand
+		pdf.text_box @loa.subject, :at => [0, 550], :height => 40, :width => 500				
 		
 		# Name es Anzuschreibenen
-		pdf.text "Sehr geehrte Damen und Herren," 
+		pdf.draw_text "Sehr geehrte Damen und Herren,", :at => [0, 520] 
 		
-		pdf.move_down zeilenabstand
-
 		# Das Bewerbungsanschreiben
 		pdf.text_box @loa.what	 , :at => [0, 500], :height => 300, :width => 550
 		
 		pdf.move_down 350
 
 
-		pdf.text "Mit freundlichen Grüßen" 
-
-		pdf.move_down zeilenabstand
+		pdf.draw_text "Mit freundlichen Grüßen", :at => [0, 150] 
 		
-		pdf.text @profile.firstName + " " + @profile.name #, :at => [0,100]
-
-		pdf.move_down zeilenabstand
+		pdf.draw_text @profile.firstName + " " + @profile.name , :at => [0,100]
 
 		# Unterschrift
 		pdf.image sig,  :at => [0,50],  :width => 50
@@ -157,8 +145,7 @@ class PdfController < ApplicationController
 
 		pdf.image sig,  :at => [0,10],  :width => 50
 
-		pdf.start_new_page
-		pdf.line [0,200], [100, 150]
+	
 
 		return pdf
 		

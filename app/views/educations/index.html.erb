@@ -2,14 +2,14 @@
 
 <br>
 
-<h1>Listing educations</h1>
+<h1><%= I18n.t("listing_edu")%></h1>
 
 <table>
   <thead>
     <tr>
-      <th>From</th>
-      <th>To</th>
-      <th>Description</th>
+      <th><%= I18n.t("from")%></th>
+      <th><%= I18n.t("to")%></th>
+      <th><%= I18n.t("desc")%></th>
       <th></th>
       <th></th>
     </tr>
@@ -21,8 +21,8 @@
         <td><%= education.time_start %></td>
         <td><%= education.time_end %></td>
         <td><%= truncate(education.desc, 25) %></td>
-        <td><%= link_to 'Edit', edit_education_path(education) %></td>
-        <td><%= link_to 'Destroy', education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to I18n.t("edit"), edit_education_path(education) %></td>
+        <td><%= link_to I18n.t("delete"), education, method: :delete, data: { confirm: I18n.t("msg_confirm") } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,5 +32,5 @@
 
 
 <% if @educations.count < 4 %>
-  <%= link_to 'New Education', new_education_path %>
+  <%= link_to I18n.t("new_education"), new_education_path %>
 <% end %>

@@ -1,7 +1,2 @@
-Hello <%= @user.profile.firstName %> <%= @user.profile.name%>,
-
-in attached file you find your CV.
-
-Have a great day!
-
-Wall-E.
+<%= I18n.t("hello")%>  <%= @user.profile.firstName %> <%= @user.profile.name%>,
+<%= I18n.t("msg_att")%>

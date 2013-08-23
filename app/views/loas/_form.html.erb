@@ -1,7 +1,7 @@
 <%= form_for(@loa) do |f| %>
   <% if @loa.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@loa.errors.count, "error") %> prohibited this Letter of Application from being saved:</h2>
+      <h2><%= pluralize(@loa.errors.count, "error") %> <%= I18n.t("prohibited")%></h2>
 
       <ul>
       <% @loa.errors.full_messages.each do |msg| %>
@@ -16,29 +16,29 @@
 
   <table>
   <tr>
-    <td><strong><%= f.label :to %></strong></td>
+    <td><strong><%= f.label I18n.t("to2") %></strong></td>
     <td><%= f.text_field :to, :maxlength => 60 %></td>  
 
   </tr>
   <tr>
-    <td><strong><%= f.label :street %></strong></td>
+    <td><strong><%= f.label I18n.t("address") %></strong></td>
     <td> <%= f.text_field :street, :maxlength => 60 %></td>
   </tr>
   <tr>
-    <td><strong><%= f.label :city %></strong></td>
+    <td><strong><%= f.label I18n.t("city") %></strong></td>
     <td><%= f.text_field :city, :maxlength => 60 %></td>
   </tr>
   <tr>
-    <td><strong><%= f.label :zip %></strong></td>
+    <td><strong><%= f.label I18n.t("zip") %></strong></td>
     <td><%= f.text_field :zip, :maxlength => 60 %></td>
   </tr>
   <tr>
-    <td><strong><%= f.label :subject %></strong></td>
-    <td><%= f.text_field :subject, :maxlength => 100 %></td>
+    <td><strong><%= f.label I18n.t("subject") %></strong></td>
+    <td><%= f.text_field :subject, :maxlength => 70, :width => 100 %></td>
   </tr>
   <tr>
-    <td><strong><%= f.label :what %></strong></td>
-    <td> <%= f.text_area :what , :cols => 100, :rows => 15, :maxlength => 1600 %></td>
+    <td><strong><%= f.label I18n.t("what") %></strong></td>
+    <td> <%= f.text_area :what , :cols => 80, :rows => 15, :maxlength => 1600 %></td>
   </tr>
 </table>
   <div class="actions">
