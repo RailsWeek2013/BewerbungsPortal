@@ -20,7 +20,7 @@ BP::Application.configure do
   :port => 587,
   :authentication => :plain,
   :domain => 'yourwebdomain.com',
-  :user_name => 'max.musterails@gmail.com',
+  :user_name => 'maxrails123@gmail.com',
   :password => 'foobar123',
   :enable_starttls_auto => true
   }
