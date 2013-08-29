@@ -54,7 +54,9 @@
   </table>
 
   <%= link_to I18n.t("edit"), edit_profile_path(@profile) %> |
-  <%= link_to I18n.t("delete"), profile_path, method: :delete %>
+  <%= link_to I18n.t("delete"), profile_path, method: :delete %> |
+  <%= link_to I18n.t("download_pdf"), pdfs_save_al_path(@profile) %> |
+  <%= link_to I18n.t("download_pdf"), pdfs_save_cvs_path(@profile) %>
 </div>
 
 <div id = "image_div">

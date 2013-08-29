@@ -108,3 +108,16 @@ en:
   new_course: "New course"
   new_Knowledge: "New Knowledge"
   bp: "AP"
+
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    order:
+      - :year
+      - :month
+      - :day
+
+  download_pdf: "Download PDF"

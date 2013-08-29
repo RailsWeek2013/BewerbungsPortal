@@ -23,7 +23,7 @@
   </tr>
   <tr>
     <td><strong><%= f.label :birthday %></strong></td>
-    <td><%= f.date_select :birthday, :start_year => 1900, :end_year => 2000  %></td>
+    <td><%= f.date_select :birthday, :start_year => 1900, :end_year => 2000 %></td> #order: [:day, :month, :year]
   </tr>
   <%= f.fields_for :address do |addresses_form| %>
   <tr>

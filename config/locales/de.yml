@@ -108,3 +108,16 @@ de:
   new_course: "Neue Kurse einfügen"
   new_Knowledge: "Neue Kenntnisse einfügen"
   bp: "BP"
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d.%m.%Y"
+      long: "%d.%m.%Y"
+
+    order:
+      - :day
+      - :month
+      - :year
+
+  download_pdf: "Herunterladen PDF"

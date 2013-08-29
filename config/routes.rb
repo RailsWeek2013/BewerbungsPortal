@@ -27,17 +27,15 @@ BP::Application.routes.draw do
   get "about" => "home#about", as: "about"
   get "contact" => "home#contact", as: "contact"
   get "download" => "home#download", as: "download"
-  #get "pfd" => "pfd#index", as: "pfd"
-
-  get "pdf/download/:id" => "pdf#download", as: "pdf_download"
-  get "pdf/save/:id" => "pdf#save", as: "pdf_save"
-
   
-  get "pdf_cvs/download/:id" => "pdf_cvs#download", as: "pdf_cvs_download"
-  get "pdf_cvs/save/:id" => "pdf_cvs#save", as: "pdf_cvs_save"
 
-  get "pdf_als/download/:id" => "pdf_als#download", as: "pdf_als_download"
-  get "pdf_als/save/:id" => "pdf_als#save", as: "pdf_als_save"
+  get "pdfs/save_al/:id" => "pdfs#save_al", as: "pdfs_save_al"
+  get "pdfs/save_cvs/:id" => "pdfs#save_cvs", as: "pdfs_save_cvs"
+  get "pdfs/save_all/:id" => "pdfs#save_all", as: "pdfs_save_all"
+
+  get "pdfs/download_cvs/:id" => "pdfs#download_cvs", as: "pdfs_download_cvs"
+  get "pdfs/download_als/:id" => "pdfs#download_als", as: "pdfs_download_als"
+  get "pdfs/download_all/:id" => "pdfs#download_all", as: "pdfs_download_all"
 
 
   scope "(:locale)", :locale => /en|de/ do
