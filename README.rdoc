@@ -11,6 +11,8 @@ Installation:
     1. Vordefiniertes Benutzerkonto
       In der Datei db/seeds.rb eigene E-Mail Addresse eintragen.
       Dann rake db:setup ausfuehren.
+      Username: test@com.de oder wenn eigene E-Mail addresse eingetragen wurde, dann ist das der Username.
+      Passwort: foobar123
 
     2. Leeres Projekt
       rake db:migrate
