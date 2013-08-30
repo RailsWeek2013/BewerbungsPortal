@@ -17,7 +17,7 @@ Installation:
 
 
 
-Funktions:
+Funktionen:
   Benutzer:
     Minimum
       Registrieren
