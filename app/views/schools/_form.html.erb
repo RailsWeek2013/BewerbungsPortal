@@ -11,18 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label I18n.t("time_start") %><br>
-    <%= f.date_select :time_start , :start_year => 1900, :end_year => 2100 %>
-  </div>
-  <div class="field">
-    <%= f.label I18n.t("time_end") %><br>
-    <%= f.date_select :time_end , :start_year => 1900, :end_year => 2100 %>
-  </div>
-  <div class="field">
-    <%= f.label I18n.t("desc") %><br>
-    <%= f.text_field :desc , :cols => 100, :rows => 1, :maxlength => 60 %>
-  </div>
+  <%= render :partial => "/places/standard_form", :locals => {:f => f} %>
+
   <div class="field">
     <%= f.hidden_field :type, :value => "School" %>
   </div>
