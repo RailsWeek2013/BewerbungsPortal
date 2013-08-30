@@ -10,6 +10,11 @@ class HomeController < ApplicationController
   end
 
   def download
-  	@incomplete_attributes = current_user.profile.incomplete_attributes
+    if(current_user.profile.nil?)
+        redirect_to new_profile_path,
+                  notice: "You need first to fill your profile ;)."
+    else
+  	   @incomplete_attributes = current_user.profile.incomplete_attributes
+    end
   end
 end

@@ -13,36 +13,42 @@ class PdfsController < ApplicationController
 		pdf = pdf_generate
 		pdf_cvs pdf
 		send_data pdf.render, :filename => 'Lebenslauf.pdf'
-
-	end
-
-	def save_al
-		#Speichert die PDF in /tmp/Bewerbungsschreiben.pdf
-	    name = "/tmp/BewerbungsanschreibenVon" + @profile.name
-   	    pdf_save name 
-	end
-
-	def save_cvs
-		#Speichert die PDF in /tmp/Bewerbungsschreiben.pdf
-	    name = "/tmp/LebenslaufVon" + @profile.name
-   	    pdf_save name 
 	end
 
 	def download_all
 		pdf = pdf_all_generate
 		send_data pdf.render, :filename => 'BewerbungsanschreibenUndLebenslauf.pdf'
-
 	end
+
+	def save_al
+		pdf = pdf_generate
+		pdf = pdf_als pdf
+		#Speichert die PDF in /tmp/Bewerbungsschreiben.pdf
+	    name = "/tmp/BewerbungsanschreibenVon" + @profile.name
+   	    pdf_save name,pdf 
+	end
+
+	def save_cvs
+		pdf = pdf_generate
+		pdf = pdf_cvs pdf
+		#Speichert die PDF in /tmp/Bewerbungsschreiben.pdf
+	    name = "/tmp/LebenslaufVon" + @profile.name
+   	    pdf_save name,pdf 
+	end
+
+	
 
 	def save_all
+		pdf = pdf_all_generate
   		#Speichert die PDF in /tmp/Bewerbungsschreiben.pdf
 	    name = "/tmp/BewerbungsanschreibenUndLebenslaufVon" + @profile.name
-   	    pdf_save name 
+   	    pdf_save name,pdf 
 	end
 
+
+
 private
-	def pdf_save name
-		pdf = pdf_all_generate
+	def pdf_save name,pdf
    	    pdf.render_file(name)
    	    #Bewerbung
    	    Notification.send_cv(@profile, name).deliver
@@ -200,17 +206,29 @@ private
 
 	# Use callbacks to share common setup or constraints between actions.
     def set_profile
-      @profile = Profile.find(params[:id])
+    	if Profile.count == 0
+    		@profile = " "
+    	else
+			@profile = Profile.find(params[:id])
+		end
     end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_place
-      @place = Place.find(params[:id])
+    	if Place.count == 0
+    		@place = " "
+    	else
+      		@place = Place.find(params[:id])
+      	end
     end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_school
-      @school = School.find(params[:id])
+    	if School.count == 0 
+    		@school = " "
+    	else
+      		@school = School.find(params[:id])
+      	end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

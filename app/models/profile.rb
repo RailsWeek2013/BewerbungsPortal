@@ -23,6 +23,7 @@ class Profile < ActiveRecord::Base
   	m << :marialStatus unless marialStatus?
   	m << :telefon unless telefon?
   	m << :avatar_file_name unless avatar_file_name?
+    m << :signature_file_name unless signature_file_name?
 
   	m
   end

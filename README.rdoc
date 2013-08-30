@@ -1,4 +1,21 @@
 == README
+Hinweise:
+  - Projekt NICHT im Ordner mit Umlaute speichern 
+  - Projekt wurde nur auf Linux getestet
+  - Bevor man die PDF Dokumente Herrunterladen und Senden kann, muessen ALLE Felder ausgefuellt sein.
+  - Gegebenen falls muss fuer paperclip ImageMagic nachinstalliert werden.
+  - Die deutsche Monatsanzeige ist fehlerhaft.
+
+Installation:
+  Es gibt zwei varianten.
+    1. Vordefiniertes Benutzerkonto
+      In der Datei db/seeds.rb eigene E-Mail Addresse eintragen.
+      Dann rake db:setup ausfuehren.
+
+    2. Leeres Projekt
+      rake db:migrate
+
+
 
 Funktions:
   Benutzer:
@@ -18,4 +35,11 @@ Funktions:
       Drücken
       Senden per Email (an sich selbst)
       Admin
+
+Gems:
+  Bilder hochladen      - paperclip
+  pfd erzeugen          - prawn
+  autorisierung         - device
+  internationalisierung - I18n 
+
 
