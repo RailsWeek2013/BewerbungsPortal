@@ -18,8 +18,8 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr>
-         <td><%= course.time_start %></td>
-        <td><%= course.time_end %></td>
+        <td><%= I18n.l course.time_start %></td>
+        <td><%= I18n.l course.time_end %></td>
         <td><%= truncate(course.desc, 25) %></td>
         <td><%= link_to I18n.t("edit"), edit_course_path(course) %></td>
         <td><%= link_to I18n.t("delete"), course, method: :delete, data: { confirm: I18n.t("msg_confirm") } %></td>

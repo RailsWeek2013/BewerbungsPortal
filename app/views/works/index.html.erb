@@ -18,8 +18,8 @@
   <tbody>
     <% @works.each do |work| %>
       <tr>
-        <td><%= work.time_start %></td>
-        <td><%= work.time_end %></td>
+        <td><%= I18n.l work.time_start %></td>
+        <td><%= I18n.l work.time_end %></td>
         <td><%= truncate(work.desc, 25) %></td>
         <td><%= link_to I18n.t("edit"), edit_work_path(work) %></td>
         <td><%= link_to I18n.t("delete"), work, method: :delete, data: { confirm: I18n.t("msg_confirm") } %></td>

@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profile_path(current_user.profile)%>
+<%= link_to I18n.t("show"), @profile %> |
+<%= link_to I18n.t("back"), profile_path(current_user.profile)%>
